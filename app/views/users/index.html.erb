@@ -1,4 +1,71 @@
-<%= link_to "Start", new_user_path %><br>
-<% @users.each do |user| %>
-	<%= user.firstname %><br>
-<% end %>
+        <div class="jumbotron">
+          <div class="container-narrow">
+            <h1>Another way to get pissed at Google Maps</h1>
+            <p>More powerful tools to infuriate and frustrate your technologically inept friends and relatives.</p>
+            <p>
+              <a class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#infoModal">Get Started</a>
+            </p>
+          </div>
+        </div>
+      <!--modal!-->
+      <div class="modal fade" id="infoModal" tabindex="-1" role="input" arialabelledby="infoModalLabel" arai-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="infoModalLabel">Just a couple questions:</h4>
+            </div>
+            <div class="modal-body">
+             <h1>Add New User</h1>
+                <%= form_for @user do |f| %>
+                        <p>
+                        <%= f.label :firstname %>
+                        <%= f.text_field :firstname %>
+                </p>
+                <p>
+                        <%= f.label :lastname %>
+                        <%= f.text_field :lastname %>
+                </p>
+                <p>
+                        <%= f.label :email %>
+                        <%= f.email_field :email %>
+                </p>
+                <p>
+                        <%= f.submit "Next", class: "btn btn-primary" %>
+                </p>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row-fluid marketing">
+        <div class="span6">
+          <h4>Crispy!</h4>
+          <p>
+          It's crisp like a perfectly done cookie or a good cracker! Just the right amount of crunch--just enough to satisfy but not enough to shock or overwhelm. More food should be this good.
+          </p>
+          <h4>Chicken!</h4>
+          <p>
+          Everyone's favorite white meat! Lean, delicious, and comes from an ugly bird that you don't really mind killing! Well, they're cute when they're young but there's not really any meat on them at that point.
+          </p>
+          <h4>Sandwich</h4>
+          <p>
+          The best and most versatile food; portable, delicious, fast, and easy, it's a favorite the world around. Why not snuggle up to a loved one and share the romance of a delightful ensemble of delicious fillings between two or more slices of bread?
+          </p>
+        </div>
+        <div class="span6">
+          <h4>Not Soggy!</h4>
+          <p>
+          Nothing is worse than soggy chicken, and we're all about doing things right, so we only will deliver the crispyest, more perfect chicken there ever was. Perfection is only the starting point.
+          </p>
+          <h4>Real Chicken!</h4>
+          <p>
+          That's right, we don't use fake chicken.  That means no turkey, no cornish game hens, no ducks or other water fowl, and certainly no hummingbirds because they are really cute and probably don't taste very good.
+          </p>
+          <h4>Really, a Sandwich!"</h4>
+          <p>
+          Yes, we hate food that comes on a plate that you have to eat with a fork and knife. Portable food like sandwiches are the future, and we're all about embracing the newest technologies.
+          </p>
+        </div>
+      </div>
