@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 	def index
-		redirect_to events_path if not session[:user_id].nil?
-		@users = User.all
+		# redirect_to events_path if not session[:user_id].nil?
 		@user = User.new
 	end
 
