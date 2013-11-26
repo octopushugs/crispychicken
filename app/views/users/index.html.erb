@@ -1,0 +1,10 @@
+<%= link_to "Start", new_user_path %><br>
+<% @users.each do |user| %>
+	<%= user.firstname %><br>
+	<%=
+		events = Event.find_by event_user_id: user.id 
+		events.each do |event|
+	%>
+		<%= event.location %>
+	<% end %>
+<% end %>

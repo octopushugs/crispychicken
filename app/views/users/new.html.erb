@@ -1,0 +1,20 @@
+<h1>Add New User</h1>
+<%= form_for @user do |f| %>
+	<p>
+	<%= f.label :firstname %>
+	<%= f.text_field :firstname %>
+</p>
+
+<p>
+	<%= f.label :lastname %>
+	<%= f.text_field :lastname %>
+</p>
+
+<p>
+	<%= f.label :email %>
+	<%= f.email_field :email %>
+</p>
+<p>
+	<%= f.submit "Next", class: "btn btn-primary" %>
+</p>
+<% end %>

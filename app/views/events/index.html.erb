@@ -1,0 +1,28 @@
+<h1>Hello <%= User.find(session[:user_id]).firstname if not session[:user_id].nil? %></h1>
+<%= form_for @event do |f| %>
+<p>
+	<%= f.label :location %>
+	<%= f.text_field :location, :placeholder => "San Francisco, CA" %>
+</p>
+
+<p>
+	<%= f.label :event_date %>
+	<%= f.date_field :event_date %>
+</p>
+
+<p>
+	<%= f.label :event_time %>
+	<%= f.time_field :event_time %>
+</p>
+
+<p>
+	<%= f.label :event_details %>
+	<%= f.text_field :event_details, :placeholder => "This will be populated" %>
+</p>
+
+<%= hidden_field_tag(:event_user_id, session[:user_id]) %>
+
+<p>
+	<%= f.submit "Next", class: "btn btn-primary" %>
+</p>
+<% end %>
