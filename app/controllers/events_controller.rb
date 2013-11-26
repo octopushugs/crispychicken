@@ -26,10 +26,10 @@ class EventsController < ApplicationController
 	end
 
 	def destroy
-
+		session[:user_id] = nil
 	end
 
 	def user_params
-		params.require(:event).permit(:location, :event_date, :event_time, :event_details, :event_user_id)
+		params.require(:event).permit(:location, :event_date, :event_time, :event_details, :user_id)
 	end
 end

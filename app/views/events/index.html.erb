@@ -20,9 +20,9 @@
 	<%= f.text_field :event_details, :placeholder => "This will be populated" %>
 </p>
 
-<%= hidden_field_tag(:event_user_id, session[:user_id]) %>
+<%= hidden_field(:event, :user_id, :value => session[:user_id]) %>
 
 <p>
-	<%= f.submit "Next", class: "btn btn-primary" %>
+	<%= f.submit "Complete", class: "btn btn-primary" %>
 </p>
 <% end %>

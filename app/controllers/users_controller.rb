@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
 	def index
+		redirect_to events_path if not session[:user_id].nil?
 		@users = User.all
+		@user = User.new
 	end
 
-	def new
+	def new 
 		@user = User.new
 	end
 
@@ -31,7 +33,7 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-
+		session[:user_id] = nil
 	end
 
 	def user_params
