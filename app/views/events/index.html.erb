@@ -1,28 +1,62 @@
-<h1>Hello <%= User.find(session[:user_id]).firstname if not session[:user_id].nil? %></h1>
-<%= form_for @event do |f| %>
-<p>
-	<%= f.label :location %>
-	<%= f.text_field :location, :placeholder => "San Francisco, CA" %>
-</p>
+        <hr>
+        <p>Alright, do you know where you want to go, or do you need some suggestions?</p>
+        <p>
+          <div class="well well-large3">
+            <a href="#modal1" role="button" class="btn" data-toggle="modal">I know what I'm doing!</a>        
+          </div>
+          <div class="well well-large">
+            <a href="#modal2" role="button" class="btn" data-toggle="modal">I want suggestions!</a>
+          </div>
+        </p>
+        
+        <!--stuff for modal triggered by buttons-->
+        <!--modal1, for precise locations-->
+        <div id="modal1" class="modal hide fade" tabindex="-1" role="input" aria-labelledby="modal1Label" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            <h3>Please enter the addresses of the places you want to go:</h3>
+          </div>
+          <div class="modal-body">
+            <p>input forms</p>
+          </div>
+          <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          <button class="btn btn-primary">Continue</button>
+          </div>
+        </div>
+        
+        <!--modal2, for users requiring recommendations-->
+        <div id="modal2" class="modal hide fade" tabindex="-1" role="input" aria-labelledby="modal1Label" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            <h3>What kind of places are you looking for?</h3>
+          </div>
+            <%= form_for @event do |f| %>
+              <p>
+                <%= f.label :location %>
+                <%= f.text_field :location, :placeholder => "San Francisco, CA" %>
+              </p>
+              <p>
+                <%= f.label :event_date %>
+                <%= f.date_field :event_date %>
+             </p>
+             <p>
+               <%= f.label :event_time %>
+               <%= f.time_field :event_time %>
+             </p>
+             <p>
+               <%= f.label :event_details %>
+               <%= f.text_field :event_details, :placeholder => "This will be populated" %>
+             </p>
+             <%= hidden_field(:event, :user_id, :value => session[:user_id]) %>
+             <p>
+               <%= f.submit "Complete", class: "btn btn-primary" %>
+             </p>
+           <% end %>
+          <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          <button class="btn btn-primary">Continue</button>
+          </div>
+        </div>
+      </div>
 
-<p>
-	<%= f.label :event_date %>
-	<%= f.date_field :event_date %>
-</p>
-
-<p>
-	<%= f.label :event_time %>
-	<%= f.time_field :event_time %>
-</p>
-
-<p>
-	<%= f.label :event_details %>
-	<%= f.text_field :event_details, :placeholder => "This will be populated" %>
-</p>
-
-<%= hidden_field(:event, :user_id, :value => session[:user_id]) %>
-
-<p>
-	<%= f.submit "Complete", class: "btn btn-primary" %>
-</p>
-<% end %>
