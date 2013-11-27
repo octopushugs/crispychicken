@@ -1,3 +1,31 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jumbotron {
+	color: #333;
+	height: 360px;
+	background: url('GoogleMap.jpg');
+	text-align: center;
+	padding: 20px;
+	position: relative;
+	border: 1px solid #ccc;
+	margin-bottom: 30px;
+
+	h1 {
+    	letter-spacing: 1px;
+    	font-size: 94px;
+    	line-height: 90px;
+	}
+	.btn {
+		position: absolute;
+		bottom: 35%;
+		margin-left: -120px;
+		width: 200px;
+		height: 40px;
+		font-size: 26px;
+		text-transform: uppercase;
+		padding-top: 30px;		
+	}
+}
+
