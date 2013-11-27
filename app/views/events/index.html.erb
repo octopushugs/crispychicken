@@ -1,5 +1,5 @@
-        <hr>
-        <p>Alright, do you know where you want to go, or do you need some suggestions?</p>
+<hr>
+  <p>Alright, do you know where you want to go, or do you need some suggestions?</p>
         <p>
           <div class="well well-large3">
             <a href="#modal1" role="button" class="btn" data-toggle="modal">I know what I'm doing!</a>        
@@ -17,6 +17,47 @@
             <h3>Please enter the addresses of the places you want to go:</h3>
           </div>
           <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="venueName">Venue Name</label>
+                <input type="text" class="form-control" id="venueName" placeholder="Example's Bar and Grill">
+                <label for="venueAddress">Address (Number, Street, City, State, ZIP)</label>
+                <input type="text" class="form-control" id="venueAddress" placeholder="311 Cherry Ave. Long Beach, CA 90807">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" rows="4"></textarea>
+                <input type="hidden" name="event" value="[]">
+              </div> <!--form-group-->
+            <hr>
+            <div class="modal-footer">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+              <button class="btn btn-primary" onclick="javascript:addData()">Add Venue</button>
+              <button class="btn btn-primary" type="submit">Make the Map!</button>
+            </form>
+          </div> <!--modal footer-->
+            <script type="text/javascript">
+			var data = new Array();
+			var tempArray;
+			var i = 0;
+			function addData() {
+			  tempArray = {
+				  name: document.getElementById("venueName").value,
+			      address: document.getElementById("venueAddress").value,
+			      description: document.getElementById("description").value
+			  }
+			  data[i] = tempArray;
+			  i++;
+			  //console.log(data);
+			}
+			</script>
+        </div>
+        <!--modal2, for users requiring recommendations-->
+        <!--
+        <div id="modal2" class="modal hide fade" tabindex="-1" role="input" aria-labelledby="modal1Label" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            <h3>What kind of places are you looking for?</h3>
+          </div>
+          <div class="modal-body">
             <p>input forms</p>
           </div>
           <div class="modal-footer">
@@ -24,39 +65,5 @@
           <button class="btn btn-primary">Continue</button>
           </div>
         </div>
-        
-        <!--modal2, for users requiring recommendations-->
-        <div id="modal2" class="modal hide fade" tabindex="-1" role="input" aria-labelledby="modal1Label" aria-hidden="true">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-            <h3>What kind of places are you looking for?</h3>
-          </div>
-            <%= form_for @event do |f| %>
-              <p>
-                <%= f.label :location %>
-                <%= f.text_field :location, :placeholder => "San Francisco, CA" %>
-              </p>
-              <p>
-                <%= f.label :event_date %>
-                <%= f.date_field :event_date %>
-             </p>
-             <p>
-               <%= f.label :event_time %>
-               <%= f.time_field :event_time %>
-             </p>
-             <p>
-               <%= f.label :event_details %>
-               <%= f.text_field :event_details, :placeholder => "This will be populated" %>
-             </p>
-             <%= hidden_field(:event, :user_id, :value => session[:user_id]) %>
-             <p>
-               <%= f.submit "Complete", class: "btn btn-primary" %>
-             </p>
-           <% end %>
-          <div class="modal-footer">
-          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-          <button class="btn btn-primary">Continue</button>
-          </div>
-        </div>
+        -->
       </div>
-
