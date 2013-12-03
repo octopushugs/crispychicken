@@ -28,6 +28,12 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Underscore 
+gem 'underscore-rails'
+
+# Google Maps Geocoding Plugin
+gem 'geocoder'
+
 # Google Maps 4 Rails API
 gem 'gmaps4rails'
 

@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
-  revision: 4b8a511e65181e28fd3caecdcf5ba730f4afe2b1
+  revision: e73a12afc1ef4f4adaf5ad794928d1faa6041d0e
   specs:
     twitter-bootstrap-rails (2.2.8)
       actionpack (>= 3.1)
@@ -55,7 +55,8 @@ GEM
       faraday (~> 0.8)
       faraday_middleware (>= 0.8)
       hashie (>= 1.0, < 3.0.0)
-    gmaps4rails (2.1.0)
+    geocoder (1.1.8)
+    gmaps4rails (2.1.1)
     hashie (2.0.5)
     hike (1.2.3)
     i18n (0.6.5)
@@ -70,7 +71,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mime-types (1.25)
+    mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.2)
     multipart-post (1.2.0)
@@ -106,7 +107,7 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
-    sprockets (2.10.0)
+    sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -129,9 +130,10 @@ GEM
     turbolinks (1.3.1)
       coffee-rails
     tzinfo (0.3.38)
-    uglifier (2.3.1)
+    uglifier (2.3.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    underscore-rails (1.5.2)
 
 PLATFORMS
   ruby
@@ -139,6 +141,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   foursquare2
+  geocoder
   gmaps4rails
   jbuilder (~> 1.2)
   jquery-rails
@@ -152,3 +155,4 @@ DEPENDENCIES
   turbolinks
   twitter-bootstrap-rails!
   uglifier (>= 1.3.0)
+  underscore-rails

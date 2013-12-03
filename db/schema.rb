@@ -11,16 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126022900) do
+ActiveRecord::Schema.define(version: 20131203083650) do
 
   create_table "events", force: true do |t|
     t.string   "location"
     t.date     "event_date"
     t.time     "event_time"
-    t.text     "event_details"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "address"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.string   "event_name"
+    t.string   "website"
+    t.string   "phone_number"
+    t.string   "rating"
+    t.string   "name"
+    t.string   "photo_reference"
+    t.string   "event_details"
   end
 
   create_table "users", force: true do |t|

@@ -15,25 +15,29 @@
 <div id="modal1" class="modal hide fade" tabindex="-1" role="input" aria-labelledby="modal1Label" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-    <h3>Please enter the addresses of the places you want to go:</h3>
+    <h3>Event Details:</h3>
   </div>
   <div class="modal-body">
-    <%= form_for @event do |f| %>
+    <%= form_for(@event, remote: true) do |f| %>
+    <div class="alert hide alert-success"></div>
     <div class="form-group">
-      <label for="venueName">Venue Name</label>
-      <input type="text" class="form-control" id="venueName" placeholder="Example's Bar and Grill">
-      <label for="venueAddress">Address (Number, Street, City, State, ZIP)</label>
-      <input type="text" class="form-control" id="venueAddress" placeholder="311 Cherry Ave. Long Beach, CA 90807">
-      <label for="description">Description</label>
-      <textarea class="form-control" id="description" rows="4"></textarea>
-      <%= hidden_field(:event, :event_details) %>
+      <%= f.label :event_name, 'Location Name' %>
+      <%= f.text_field :event_name %>
+      <%= f.label :location, 'Location Address' %>
+      <%= f.text_field :location %>
+      <%= f.label :event_details %>
+      <%= text_area_tag(:event_details) %>
+      <%= f.label :event_date, 'Event Date' %>
+      <%= date_field(:event, :event_date) %>
+      <%= f.label :event_time, 'Event Time' %>      
+      <%= time_field(:event, :event_time) %>
       <%= hidden_field(:event, :user_id, :value => session[:user_id]) %>
     </div> <!--form-group-->
     <hr>
     <div class="modal-footer">
       <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-      <a onclick="javascript:addData()"><span class="btn btn-primary">Add Venue</span></a>
-      <button class="btn btn-primary" type="submit">Make the Map!</button>
+      <%= f.submit("Add Venue", :class => "btn btn-primary") %>
+      <a href="events/show" class="btn btn-primary">Make the Map!</a>
     </div> <!--modal footer-->
     <% end %>
   </div>
@@ -53,20 +57,3 @@
 </div>
 </div>
 -->
-<script type="text/javascript">
-var data = new Array();
-var i = 0;
-function addData() {
-  var tempArray;
-  tempArray = {
-    name: $("#venueName").val(),
-    address: $("#venueAddress").val(),
-    description: $("#description").val()
-  }
-
-  data[i] = JSON.stringify(tempArray);
-  i++;
-
-  $('#event_event_details').val(data);
-}
-</script>
