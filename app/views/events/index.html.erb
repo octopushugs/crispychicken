@@ -31,13 +31,13 @@
       <%= date_field(:event, :event_date) %>
       <%= f.label :event_time, 'Event Time' %>      
       <%= time_field(:event, :event_time) %>
-      <%= hidden_field(:event, :user_id, :value => session[:user_id]) %>
+      <%= hidden_field(:event, :user_id, :value => current_user['id'] ) %>
     </div> <!--form-group-->
     <hr>
     <div class="modal-footer">
       <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
       <%= f.submit("Add Venue", :class => "btn btn-primary") %>
-      <a href="events/show" class="btn btn-primary">Make the Map!</a>
+      <a href="/events/<%= session[:user_id] %>" class="btn btn-primary">Make the Map!</a>
     </div> <!--modal footer-->
     <% end %>
   </div>

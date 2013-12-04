@@ -9,10 +9,6 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
-	def show
-		@users = User.all
-	end
-
 	def edit
 
 	end
@@ -22,9 +18,10 @@ class UsersController < ApplicationController
 
 		if @user.save
 			session[:user_id] = @user.id
+			sign_in @user
 			redirect_to events_path, :notice => "Welcome #{@user.firstname}!"
 		else
-			render "new"
+			render "index"
 		end
 	end
 
@@ -37,6 +34,6 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-		params.require(:user).permit(:firstname, :lastname, :email)
+		params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation)
 	end
 end

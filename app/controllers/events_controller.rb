@@ -6,7 +6,7 @@ class EventsController < ApplicationController
 	end
 
 	def show
-	    @events = Event.where(:user_id => session[:user_id])
+	    @events = Event.where(:user_id => current_user['id'] )
 	    @indStr = 'A'
 	    @hash = Gmaps4rails.build_markers(@events) do |event, marker|
 	        marker.lat event.latitude
@@ -48,7 +48,7 @@ class EventsController < ApplicationController
 	end
 
     def set_event
-      @event = Event.find(session[:user_id])
+      @event = Event.find(current_user['id'])
     end
 
 	def event_params

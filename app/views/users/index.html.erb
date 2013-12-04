@@ -1,6 +1,6 @@
 <div class="jumbotron">
-    <h1>Ready to have fun?</h1>
-    <a class="btn btn-large btn-success" role="button" data-toggle="modal" data-target="#infoModal">Get Started</a>
+  <h1>Ready to have fun?</h1>
+  <a class="btn btn-large btn-success" role="button" data-toggle="modal" data-target="#infoModal">Get Started</a>
 </div>
 <div class="row-fluid">
   <div class="span6">
@@ -43,22 +43,24 @@
       <div class="modal-body">
        <h4>Let's start with your details...</h4>
        <%= form_for @user do |f| %>
-       <p>
-        <%= f.label :firstname, 'First Name' %>
-        <%= f.text_field :firstname %>
-      </p>
-      <p>
-        <%= f.label :lastname, 'Last Name' %>
-        <%= f.text_field :lastname %>
-      </p>
-      <p>
-        <%= f.label :email %>
-        <%= f.email_field :email %>
-      </p>
-      <p>
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-        <%= f.submit "Next", class: "btn btn-primary" %>
-      </p>
+        <p class="pull-left">
+          <%= f.label :firstname, 'Name', :class => "bold" %>
+          <%= f.text_field :firstname, :placeholder => "First Name" %>
+          <%= f.text_field :lastname, :placeholder => "Last Name" %>
+        </p>
+        <p class="pull-left" style="width: 100%">
+          <%= f.label :email, "Email Address" %>
+          <%= f.email_field :email, :placeholder => "email@example.com" %>
+        </p>
+        <p class="pull-left">
+          <%= f.label :firstname, 'Password', :class => "bold" %>
+          <%= f.password_field :password, :placeholder => "Password" %>
+          <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+        </p>
+        <p class="pull-left">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+          <%= f.submit "Next", class: "btn btn-primary" %>
+        </p>
       <% end %>
     </div>
   </div>
